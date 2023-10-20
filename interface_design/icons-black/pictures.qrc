@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="figures">
+    <file>../gui/Instituto_Superior_Técnico_Logo.png</file>
+  </qresource>
+  <qresource prefix="newPrefix"/>
+</RCC>

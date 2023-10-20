@@ -10,8 +10,7 @@ n_samples = 1000
 def main():
 
     if not connected_ports:
-        raise IOError("No Arduino found")
-    
+        raise IOError("No Arduino found")    
 
     arduino = serial.Serial(connected_ports[0], baudrate=9600, timeout=1)
     arduino.open() # Opens the serial port for communication

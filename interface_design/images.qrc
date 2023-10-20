@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="images">
+    <file>images/atlas_logo_dark.png</file>
+  </qresource>
+</RCC>
