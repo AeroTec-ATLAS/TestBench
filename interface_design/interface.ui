@@ -865,7 +865,7 @@
                        <number>0</number>
                       </property>
                       <item>
-                       <widget class="QLabel" name="label_35">
+                       <widget class="QLabel" name="VoltageValueText">
                         <property name="text">
                          <string>f</string>
                         </property>
@@ -875,7 +875,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="label_32">
+                       <widget class="QLabel" name="CurrentValueText">
                         <property name="text">
                          <string>g</string>
                         </property>
@@ -885,7 +885,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="label_34">
+                       <widget class="QLabel" name="ThrustValueText">
                         <property name="text">
                          <string>h</string>
                         </property>
@@ -895,7 +895,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="label_31">
+                       <widget class="QLabel" name="TorqueValueText">
                         <property name="text">
                          <string>i</string>
                         </property>
@@ -905,7 +905,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="label_33">
+                       <widget class="QLabel" name="RpmValueText">
                         <property name="text">
                          <string>j</string>
                         </property>
@@ -915,7 +915,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="label_8">
+                       <widget class="QLabel" name="MotorTempValueText">
                         <property name="text">
                          <string>a</string>
                         </property>
@@ -925,7 +925,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="label_51">
+                       <widget class="QLabel" name="EscTempValueText">
                         <property name="text">
                          <string>k</string>
                         </property>
@@ -935,7 +935,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="label_7">
+                       <widget class="QLabel" name="AirspeedValueText">
                         <property name="text">
                          <string>a</string>
                         </property>
@@ -945,7 +945,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="label_53">
+                       <widget class="QLabel" name="NoiseValueText">
                         <property name="text">
                          <string>l</string>
                         </property>
