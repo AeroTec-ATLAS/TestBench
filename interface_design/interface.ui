@@ -1369,9 +1369,9 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_10">
           <item>
-           <widget class="QCustomStackedWidget" name="stackedWidget">
+           <widget class="QCustomStackedWidget" name="mainMenu">
             <property name="currentIndex">
-             <number>1</number>
+             <number>3</number>
             </property>
             <widget class="QWidget" name="setupMenu">
              <layout class="QVBoxLayout" name="verticalLayout_11"/>

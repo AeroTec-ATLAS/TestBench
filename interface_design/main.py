@@ -39,10 +39,16 @@ class MainWindowInterface(Ui_MainWindow):
         self.ui = Ui_MainWindow()  # Create an instance of the UI class
         self.ui.setupUi(MainWindow)      # Set up the UI elements on this QMainWindow instance
 
-
         self.timer = QTimer(MainWindow)       # Create a QTimer instance
         self.timer.timeout.connect(self.update_data_container)  # Connect timer timeout signal to update function
         self.timer.start(1000)           # Update every 100 milliseconds (0.1 second)
+
+        self.ui.setupBtn.clicked.connect(self.open_setup_menu)
+        self.ui.manualControlBtn.clicked.connect(self.open_manual_control_menu)
+        self.ui.automaticControlBtn.clicked.connect(self.open_automatic_control_menu)
+        self.ui.resultsBtn.clicked.connect(self.open_results_menu)
+        self.ui.settingsBtn.clicked.connect(self.open_settings_menu)
+        self.ui.exitBtn.clicked.connect(sys.exit)
     
     def update_data_container(self):
         # Update current_data dictionary with random continuous values
@@ -60,7 +66,6 @@ class MainWindowInterface(Ui_MainWindow):
         self.ui.NoiseValueText.setText(str(current_data["noise"]))
 
     def update_data(self): # develop serial communication here
-
         
         # Assign random continuous values to the current_data dictionary
         current_data["thrust"] = random.uniform(0, 100)
@@ -73,11 +78,34 @@ class MainWindowInterface(Ui_MainWindow):
         current_data["airspeed"] = random.uniform(0, 200)
         current_data["noise"] = random.uniform(0, 100)
 
+    def open_setup_menu(self):
+        self.ui.mainMenu.setCurrentWidget(self.ui.setupMenu)
+    
+    def open_manual_control_menu(self):
+        self.ui.mainMenu.setCurrentWidget(self.ui.manualControlMenu)
+    
+    def open_automatic_control_menu(self):
+        self.ui.mainMenu.setCurrentWidget(self.ui.automaticControlMenu)
+
+    def open_results_menu(self):
+        self.ui.mainMenu.setCurrentWidget(self.ui.resultsMenu)
+       
+    def open_settings_menu(self):
+        self.ui.mainMenu.setCurrentWidget(self.ui.settingsMenu)
+    
+
+
+
+        
+
+
+
 
 #execute app
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)  # Create a QApplication instance
     MainWindow = QtWidgets.QMainWindow()
+    
     ui = MainWindowInterface(MainWindow)         # Create an instance of the MainWindowInterface class
     MainWindow.show()
     sys.exit(app.exec_())                  # Start the application event loop
