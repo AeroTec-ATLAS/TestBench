@@ -2,7 +2,7 @@ import os
 import sys
 
 #import Pyqt5
-from PyQt5.QtGui import QPainter 
+import pyqtgraph as pg
 
 #IMPORT CUSTOM WIDGETS
 from Custom_Widgets.Widgets import *
@@ -32,6 +32,8 @@ current_data ={
      
 }
 
+trash = [i for i in range(100)]
+
 
 # Main window class
 class MainWindowInterface(Ui_MainWindow):
@@ -43,12 +45,18 @@ class MainWindowInterface(Ui_MainWindow):
         self.timer.timeout.connect(self.update_data_container)  # Connect timer timeout signal to update function
         self.timer.start(1000)           # Update every 100 milliseconds (0.1 second)
 
-        self.ui.setupBtn.clicked.connect(self.open_setup_menu)
-        self.ui.manualControlBtn.clicked.connect(self.open_manual_control_menu)
-        self.ui.automaticControlBtn.clicked.connect(self.open_automatic_control_menu)
-        self.ui.resultsBtn.clicked.connect(self.open_results_menu)
-        self.ui.settingsBtn.clicked.connect(self.open_settings_menu)
+        
+        # Associate buttoms to correspondent functionalities:
+        # Left container Btns
+        self.ui.setupBtn.clicked.connect(lambda : self.ui.mainMenu.setCurrentWidget(self.ui.setupMenu))
+        self.ui.manualControlBtn.clicked.connect(lambda : self.ui.mainMenu.setCurrentWidget(self.ui.manualControlMenu))
+        self.ui.automaticControlBtn.clicked.connect(lambda : self.ui.mainMenu.setCurrentWidget(self.ui.automaticControlMenu))
+        self.ui.resultsBtn.clicked.connect(lambda : self.ui.mainMenu.setCurrentWidget(self.ui.resultsMenu))
+        self.ui.settingsBtn.clicked.connect(lambda : self.ui.mainMenu.setCurrentWidget(self.ui.settingsMenu))
         self.ui.exitBtn.clicked.connect(sys.exit)
+
+        # step test Menu btn
+        self.ui.stepReturnBtn.clicked.connect(lambda : self.ui.mainMenu.setCurrentWidget(self.ui.automaticControlMenu))
     
     def update_data_container(self):
         # Update current_data dictionary with random continuous values
@@ -68,30 +76,17 @@ class MainWindowInterface(Ui_MainWindow):
     def update_data(self): # develop serial communication here
         
         # Assign random continuous values to the current_data dictionary
-        current_data["thrust"] = random.uniform(0, 100)
-        current_data["torque"] = random.uniform(0, 100)
-        current_data["rpm"] = random.uniform(0, 5000)
-        current_data["motor_temp"] = random.uniform(0, 100)
-        current_data["esc_temp"] = random.uniform(0, 100)
-        current_data["voltage"] = random.uniform(0, 50)
-        current_data["current"] = random.uniform(0, 50)
-        current_data["airspeed"] = random.uniform(0, 200)
-        current_data["noise"] = random.uniform(0, 100)
+        current_data["thrust"] = random.choice(trash)
+        current_data["torque"] = random.choice(trash)
+        current_data["rpm"] = random.choice(trash)
+        current_data["motor_temp"] = random.choice(trash)
+        current_data["esc_temp"] = random.choice(trash)
+        current_data["voltage"] = random.choice(trash)
+        current_data["current"] = random.choice(trash)
+        current_data["airspeed"] = random.choice(trash)
+        current_data["noise"] = random.choice(trash)
 
-    def open_setup_menu(self):
-        self.ui.mainMenu.setCurrentWidget(self.ui.setupMenu)
     
-    def open_manual_control_menu(self):
-        self.ui.mainMenu.setCurrentWidget(self.ui.manualControlMenu)
-    
-    def open_automatic_control_menu(self):
-        self.ui.mainMenu.setCurrentWidget(self.ui.automaticControlMenu)
-
-    def open_results_menu(self):
-        self.ui.mainMenu.setCurrentWidget(self.ui.resultsMenu)
-       
-    def open_settings_menu(self):
-        self.ui.mainMenu.setCurrentWidget(self.ui.settingsMenu)
     
 
 
