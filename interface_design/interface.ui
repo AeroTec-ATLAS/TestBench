@@ -1354,7 +1354,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QCustomStackedWidget" name="mainMenu">
+        <widget class="QStackedWidget" name="mainMenu">
          <property name="currentIndex">
           <number>1</number>
          </property>
@@ -1365,6 +1365,9 @@
           <layout class="QVBoxLayout" name="verticalLayout_12">
            <item>
             <widget class="QScrollArea" name="scrollArea">
+             <property name="sizeAdjustPolicy">
+              <enum>QAbstractScrollArea::AdjustToContents</enum>
+             </property>
              <property name="widgetResizable">
               <bool>true</bool>
              </property>
@@ -1598,10 +1601,91 @@
                     </property>
                    </widget>
                   </item>
-                  <item alignment="Qt::AlignTop">
-                   <widget class="QTableWidget" name="tableWidget">
+                  <item alignment="Qt::AlignLeft">
+                   <widget class="QFrame" name="frame_5">
+                    <property name="font">
+                     <font>
+                      <stylestrategy>NoAntialias</stylestrategy>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="frameShape">
                      <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_21">
+                     <item alignment="Qt::AlignLeft">
+                      <widget class="QPushButton" name="stepAddNewLineBtn">
+                       <property name="font">
+                        <font>
+                         <pointsize>10</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>New Line</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="stepClearTableBtn">
+                       <property name="font">
+                        <font>
+                         <pointsize>10</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Clear Table</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item alignment="Qt::AlignLeft">
+                      <widget class="QPushButton" name="stepToolsBtn">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>10</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Tools</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item alignment="Qt::AlignTop">
+                   <widget class="QTableWidget" name="stepSequenceEditorTable">
+                    <property name="frameShape">
+                     <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="verticalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
+                    </property>
+                    <property name="horizontalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
+                    </property>
+                    <property name="sizeAdjustPolicy">
+                     <enum>QAbstractScrollArea::AdjustToContents</enum>
+                    </property>
+                    <property name="autoScroll">
+                     <bool>true</bool>
+                    </property>
+                    <property name="autoScrollMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="alternatingRowColors">
+                     <bool>false</bool>
+                    </property>
+                    <property name="selectionBehavior">
+                     <enum>QAbstractItemView::SelectItems</enum>
                     </property>
                     <property name="showGrid">
                      <bool>true</bool>
@@ -1634,11 +1718,6 @@
                       <string>New Row</string>
                      </property>
                     </row>
-                    <row>
-                     <property name="text">
-                      <string>New Row</string>
-                     </property>
-                    </row>
                     <column>
                      <property name="text">
                       <string>Time (s)</string>
@@ -1646,12 +1725,12 @@
                     </column>
                     <column>
                      <property name="text">
-                      <string>Take Sample</string>
+                      <string>Esc Throttle (μs)</string>
                      </property>
                     </column>
                     <column>
                      <property name="text">
-                      <string>Esc Throttle (μs)</string>
+                      <string>Take Sample</string>
                      </property>
                     </column>
                     <column>
@@ -1664,72 +1743,74 @@
                       <string>0</string>
                      </property>
                     </item>
-                    <item row="1" column="0">
-                     <property name="text">
-                      <string>1</string>
-                     </property>
-                    </item>
-                    <item row="1" column="2">
+                    <item row="0" column="1">
                      <property name="text">
                       <string>1000</string>
                      </property>
                     </item>
-                    <item row="2" column="0">
+                    <item row="1" column="0">
                      <property name="text">
-                      <string>2</string>
+                      <string/>
+                     </property>
+                    </item>
+                    <item row="1" column="2">
+                     <property name="text">
+                      <string/>
                      </property>
                     </item>
                    </widget>
                   </item>
                   <item alignment="Qt::AlignLeft">
-                   <widget class="QFrame" name="frame_5">
-                    <property name="font">
-                     <font>
-                      <stylestrategy>NoAntialias</stylestrategy>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
+                   <widget class="QFrame" name="frame_6">
                     <property name="frameShape">
                      <enum>QFrame::NoFrame</enum>
                     </property>
                     <property name="frameShadow">
                      <enum>QFrame::Raised</enum>
                     </property>
-                    <layout class="QHBoxLayout" name="horizontalLayout_21">
+                    <layout class="QHBoxLayout" name="horizontalLayout_22">
                      <item>
-                      <widget class="QLabel" name="label_31">
+                      <widget class="QLabel" name="label_9">
                        <property name="font">
                         <font>
                          <pointsize>10</pointsize>
                         </font>
                        </property>
                        <property name="text">
-                        <string>Add Time:</string>
+                        <string>Number of Loops</string>
                        </property>
                       </widget>
                      </item>
-                     <item alignment="Qt::AlignLeft">
-                      <widget class="QLineEdit" name="lineEdit_3"/>
-                     </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_7">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
+                      <widget class="QLineEdit" name="stepNumLoopsLEdit">
+                       <property name="maximumSize">
+                        <size>
+                         <width>50</width>
+                         <height>16777215</height>
+                        </size>
                        </property>
                        <property name="font">
                         <font>
                          <pointsize>10</pointsize>
                         </font>
                        </property>
-                       <property name="text">
-                        <string>Tools</string>
+                       <property name="layoutDirection">
+                        <enum>Qt::LeftToRight</enum>
                        </property>
-                       <property name="icon">
-                        <iconset resource="icons.qrc">
-                         <normaloff>:/icons/icons-black/arrow-down.svg</normaloff>:/icons/icons-black/arrow-down.svg</iconset>
+                       <property name="text">
+                        <string>1</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                       <property name="placeholderText">
+                        <string/>
+                       </property>
+                       <property name="cursorMoveStyle">
+                        <enum>Qt::LogicalMoveStyle</enum>
+                       </property>
+                       <property name="clearButtonEnabled">
+                        <bool>false</bool>
                        </property>
                       </widget>
                      </item>
@@ -1782,7 +1863,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QWidget" name="widget" native="true">
+                   <widget class="PlotWidget" name="stepPreviewTestGraphic" native="true">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                       <horstretch>0</horstretch>
@@ -2426,9 +2507,9 @@ Stay safe: always respect equipment and component limits.</string>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>QCustomStackedWidget</class>
-   <extends>QStackedWidget</extends>
-   <header location="global">Custom_Widgets.Widgets.h</header>
+   <class>PlotWidget</class>
+   <extends>QWidget</extends>
+   <header>pyqtgraph.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
