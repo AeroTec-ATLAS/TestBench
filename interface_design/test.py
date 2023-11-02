@@ -1,32 +1,38 @@
-from PyQt5 import QtWidgets, QtGui, QtCore
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget
+import sys
 
-class MainWindow(QtWidgets.QWidget):
+class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.initUI()
 
     def initUI(self):
-        layout = QtWidgets.QVBoxLayout(self)
-        self.setLayout(layout)
-
-        # Create a QTableWidget
-        self.tableWidget = QtWidgets.QTableWidget(3, 3)
+        centralWidget = QWidget(self)
+        layout = QVBoxLayout(centralWidget)
+        
+        self.tableWidget = QTableWidget(self)
         layout.addWidget(self.tableWidget)
+        
+        self.setCentralWidget(centralWidget)
+        
+        # Add rows and columns to the table
+        self.tableWidget.setRowCount(3)  # Number of rows
+        self.tableWidget.setColumnCount(3)  # Number of columns
 
-        # Connect the itemChanged signal to the custom method
-        self.tableWidget.itemChanged.connect(self.handleItemChanged)
+        # Populate the table with data
+        for row in range(self.tableWidget.rowCount()):
+            for col in range(self.tableWidget.columnCount()):
+                item = QTableWidgetItem("Row {} Col {}".format(row, col))
+                self.tableWidget.setItem(row, col, item)
 
-    def handleItemChanged(self, item):
-        # Handle changes in the table
-        row = item.row()
-        column = item.column()
-        new_value = item.text()
-        print(f'Item at row {row}, column {column} changed to: {new_value}')
+        # Disable editing for the first row
+        for col in range(self.tableWidget.columnCount()):
+            item = self.tableWidget.item(0, col)
+            item.setFlags(item.flags() ^ 2)  # Disable the ItemIsEditable flag
+        
+        self.show()
 
 if __name__ == '__main__':
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    window = MainWindow()
-    window.show()
+    app = QApplication(sys.argv)
+    mainWindow = MainWindow()
     sys.exit(app.exec_())
-
