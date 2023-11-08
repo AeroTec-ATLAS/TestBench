@@ -6,7 +6,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import pyqtgraph as pg
 
 # Import GUI file
-from rampTestInterface import Ui_Frame
+if __name__ == '__main__':
+    from rampTestInterface import Ui_Frame
+else:
+    from stackWidgets.rampTestMenu.rampTestInterface import Ui_Frame
+
+
 
 # Main window class
 class rampTestWidget(Ui_Frame):
@@ -45,11 +50,9 @@ class rampTestWidget(Ui_Frame):
         if row == 0:  
             item1 = self.ui.stepSequenceEditorTable.item(0, 0)
             item2 = self.ui.stepSequenceEditorTable.item(0, 1)
-            item3 = self.ui.stepSequenceEditorTable.item(0, 3)
             
             item1.setFlags(item1.flags() ^ 2)  # Disable the ItemIsEditable flag
             item2.setFlags(item2.flags() ^ 2)
-            item3.setFlags(item3.flags() ^ 2)
 
         # Add checkbox for column 2 (Save Sample)
         checkbox = QtWidgets.QCheckBox()
@@ -154,7 +157,7 @@ class rampTestWidget(Ui_Frame):
 #execute app
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    Frame =QtWidgets.QFrame
+    Frame =QtWidgets.QFrame()
     ui = rampTestWidget(Frame)
     Frame.show()
     sys.exit(app.exec_())

@@ -8,6 +8,7 @@ import pyqtgraph as pg
 # Import GUI files
 from ui_interface import Ui_MainWindow
 from stackWidgets.stepTestMenu.stepTestWidget import stepTestWidget
+from stackWidgets.rampTestMenu.rampTestWidget import rampTestWidget
 
 # imprt csv
 import csv
@@ -33,11 +34,21 @@ trash = [i for i in range(100)]
 class MainWindowInterface(Ui_MainWindow):
     def __init__(self, MainWindow):
         self.ui = Ui_MainWindow()  # Create an instance of the UI class
-        self.ui.setupUi(MainWindow)      # Set up the UI elements on this QMainWindow instance
-        
-        self.ui.stepTestInterface = stepTestWidget(self.ui.stepTestInterface)
+        self.ui.setupUi(MainWindow)      # Set up the UI elements on this QMainWindow instanc
+
+
+        self.include_step_test_widget()
 
         self.setup_fundamental_functionalities()
+
+    def include_step_test_widget(self):
+        # Associate stepTestWidget Class to the stepTestInterface Frame in the main interface
+        self.ui.stepTestInterface = stepTestWidget(self.ui.stepTestInterface)
+
+        # Define stepTestWidget buttoms functionalities
+        self.ui.stepTestInterface.ui.ReturnBtn.clicked.connect(lambda : self.ui.mainMenu.setCurrentWidget(self.ui.automaticControlMenu))
+
+
 
         
     def setup_fundamental_functionalities(self):

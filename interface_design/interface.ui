@@ -207,12 +207,20 @@
                <property name="text">
                 <string>Setup</string>
                </property>
+               <property name="icon">
+                <iconset resource="resources/black_icons.qrc">
+                 <normaloff>:/b_icons/icons-black/tool.svg</normaloff>:/b_icons/icons-black/tool.svg</iconset>
+               </property>
               </widget>
              </item>
              <item>
               <widget class="QPushButton" name="manualControlBtn">
                <property name="text">
                 <string>Manual Control</string>
+               </property>
+               <property name="icon">
+                <iconset resource="resources/black_icons.qrc">
+                 <normaloff>:/b_icons/icons-black/user.svg</normaloff>:/b_icons/icons-black/user.svg</iconset>
                </property>
               </widget>
              </item>
@@ -1286,7 +1294,7 @@
        <item>
         <widget class="QStackedWidget" name="mainMenu">
          <property name="currentIndex">
-          <number>1</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="setupMenu">
           <layout class="QVBoxLayout" name="verticalLayout_11"/>
@@ -1294,7 +1302,21 @@
          <widget class="QWidget" name="stepTestMenu">
           <layout class="QVBoxLayout" name="verticalLayout_12">
            <item>
-            <widget class="stepTestWidget" name="stepTestInterface">
+            <widget class="QFrame" name="stepTestInterface">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="rampTestMenu">
+          <layout class="QVBoxLayout" name="verticalLayout_10">
+           <item>
+            <widget class="QFrame" name="rampTestInterface">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
@@ -1851,14 +1873,8 @@ Stay safe: always respect equipment and component limits.</string>
    <widget class="QWidget" name="dockWidgetContents"/>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>stepTestWidget</class>
-   <extends>QFrame</extends>
-   <header location="global">stackWidgets.stepTestMenu.stepTestWidget.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
- <resources/>
+ <resources>
+  <include location="resources/black_icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

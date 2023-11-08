@@ -1,38 +1,5 @@
 <RCC>
-  <qresource prefix="icons">
-    <file>icons-black/activity.svg</file>
-    <file>icons-black/airplay.svg</file>
-    <file>icons-black/alert-circle.svg</file>
-    <file>icons-black/alert-octagon.svg</file>
-    <file>icons-black/alert-triangle.svg</file>
-    <file>icons-black/align-center.svg</file>
-    <file>icons-black/align-justify.svg</file>
-    <file>icons-black/align-left.svg</file>
-    <file>icons-black/align-right.svg</file>
-    <file>icons-black/anchor.svg</file>
-    <file>icons-black/aperture.svg</file>
-    <file>icons-black/archive.svg</file>
-    <file>icons-black/arrow-down.svg</file>
-    <file>icons-black/arrow-down-circle.svg</file>
-    <file>icons-black/arrow-down-left.svg</file>
-    <file>icons-black/arrow-down-right.svg</file>
-    <file>icons-black/arrow-left.svg</file>
-    <file>icons-black/arrow-left-circle.svg</file>
-    <file>icons-black/arrow-right.svg</file>
-    <file>icons-black/arrow-right-circle.svg</file>
-    <file>icons-black/arrow-up.svg</file>
-    <file>icons-black/arrow-up-circle.svg</file>
-    <file>icons-black/arrow-up-left.svg</file>
-    <file>icons-black/arrow-up-right.svg</file>
-    <file>icons-black/at-sign.svg</file>
-    <file>icons-black/award.svg</file>
-    <file>icons-black/bar-chart.svg</file>
-    <file>icons-black/bar-chart-2.svg</file>
-    <file>icons-black/battery.svg</file>
-    <file>icons-black/battery-charging.svg</file>
-    <file>icons-black/bell.svg</file>
-    <file>icons-black/bell-off.svg</file>
-    <file>icons-black/bluetooth.svg</file>
+  <qresource prefix="b_icons">
     <file>icons-black/activity.svg</file>
     <file>icons-black/airplay.svg</file>
     <file>icons-black/alert-circle.svg</file>
@@ -222,6 +189,7 @@
     <file>icons-black/phone-missed.svg</file>
     <file>icons-black/phone-off.svg</file>
     <file>icons-black/phone-outgoing.svg</file>
+    <file>icons-black/pictures.qrc</file>
     <file>icons-black/pie-chart.svg</file>
     <file>icons-black/play.svg</file>
     <file>icons-black/play-circle.svg</file>
