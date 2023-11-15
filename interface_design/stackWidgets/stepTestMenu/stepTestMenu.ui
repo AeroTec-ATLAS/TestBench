@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>546</width>
+    <width>553</width>
     <height>525</height>
    </rect>
   </property>
@@ -60,12 +60,12 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>544</width>
+        <width>551</width>
         <height>523</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_35">
-       <item>
+       <item alignment="Qt::AlignTop">
         <widget class="QFrame" name="stepReturnMenu">
          <property name="font">
           <font>
@@ -194,7 +194,7 @@
             </property>
            </widget>
           </item>
-          <item>
+          <item alignment="Qt::AlignHCenter">
            <widget class="QLabel" name="label_7">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
@@ -229,6 +229,78 @@
             </property>
            </widget>
           </item>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="PlotWidget" name="PreviewTestGraphic" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <widget class="QSlider" name="typeOfTestSlider">
+               <property name="maximum">
+                <number>1</number>
+               </property>
+               <property name="pageStep">
+                <number>1</number>
+               </property>
+               <property name="tracking">
+                <bool>false</bool>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="tickPosition">
+                <enum>QSlider::NoTicks</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="label_14">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+              <horstretch>1</horstretch>
+              <verstretch>1</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+              <strikeout>false</strikeout>
+              <stylestrategy>PreferDefault</stylestrategy>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="mouseTracking">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Ramp Test Wizard</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
@@ -252,6 +324,12 @@
        </item>
        <item>
         <widget class="QFrame" name="stepSequenceEditorMenu">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -446,11 +524,6 @@
               <string/>
              </property>
             </column>
-            <column>
-             <property name="text">
-              <string>row number</string>
-             </property>
-            </column>
             <item row="0" column="0">
              <property name="text">
               <string>0</string>
@@ -587,16 +660,6 @@
             </property>
             <property name="text">
              <string>Sequence Preview</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="PlotWidget" name="PreviewTestGraphic" native="true">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
             </property>
            </widget>
           </item>

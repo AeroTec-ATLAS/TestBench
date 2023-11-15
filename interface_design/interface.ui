@@ -1294,10 +1294,21 @@
        <item>
         <widget class="QStackedWidget" name="mainMenu">
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="setupMenu">
-          <layout class="QVBoxLayout" name="verticalLayout_11"/>
+          <layout class="QVBoxLayout" name="verticalLayout_11">
+           <item>
+            <widget class="QFrame" name="setupInterface">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="stepTestMenu">
           <layout class="QVBoxLayout" name="verticalLayout_12">

@@ -91,9 +91,15 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.setContentsMargins(-1, -1, -1, 10)
         self.verticalLayout_9.setObjectName("verticalLayout_9")
         self.setupBtn = QtWidgets.QPushButton(self.commandsContainer)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/b_icons/icons-black/tool.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.setupBtn.setIcon(icon)
         self.setupBtn.setObjectName("setupBtn")
         self.verticalLayout_9.addWidget(self.setupBtn)
         self.manualControlBtn = QtWidgets.QPushButton(self.commandsContainer)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/b_icons/icons-black/user.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.manualControlBtn.setIcon(icon1)
         self.manualControlBtn.setObjectName("manualControlBtn")
         self.verticalLayout_9.addWidget(self.manualControlBtn)
         self.automaticControlBtn = QtWidgets.QPushButton(self.commandsContainer)
@@ -490,6 +496,11 @@ class Ui_MainWindow(object):
         self.setupMenu.setObjectName("setupMenu")
         self.verticalLayout_11 = QtWidgets.QVBoxLayout(self.setupMenu)
         self.verticalLayout_11.setObjectName("verticalLayout_11")
+        self.setupInterface = QtWidgets.QFrame(self.setupMenu)
+        self.setupInterface.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.setupInterface.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.setupInterface.setObjectName("setupInterface")
+        self.verticalLayout_11.addWidget(self.setupInterface)
         self.mainMenu.addWidget(self.setupMenu)
         self.stepTestMenu = QtWidgets.QWidget()
         self.stepTestMenu.setObjectName("stepTestMenu")
@@ -784,7 +795,7 @@ class Ui_MainWindow(object):
         MainWindow.addDockWidget(QtCore.Qt.DockWidgetArea(8), self.dockWidget)
 
         self.retranslateUi(MainWindow)
-        self.mainMenu.setCurrentIndex(2)
+        self.mainMenu.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -885,6 +896,7 @@ class Ui_MainWindow(object):
         self.label_83.setText(_translate("MainWindow", "Rotational Speed"))
         self.lineEdit_12.setPlaceholderText(_translate("MainWindow", "None"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.SafetyLimitsMenu), _translate("MainWindow", "SafetyLimitsMenu"))
+import resources.black_icons_rc
 
 
 if __name__ == "__main__":

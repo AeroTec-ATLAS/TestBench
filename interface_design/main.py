@@ -8,7 +8,7 @@ import pyqtgraph as pg
 # Import GUI files
 from ui_interface import Ui_MainWindow
 from stackWidgets.stepTestMenu.stepTestWidget import stepTestWidget
-from stackWidgets.rampTestMenu.rampTestWidget import rampTestWidget
+from stackWidgets.setupMenu.setupWidget import setupWidget
 
 # imprt csv
 import csv
@@ -38,15 +38,28 @@ class MainWindowInterface(Ui_MainWindow):
 
 
         self.include_step_test_widget()
+        self.include_setup_menu()
 
         self.setup_fundamental_functionalities()
+    
+    def include_setup_menu(self):
+        # Associate stepTestWidget Class to the stepTestInterface Frame in the main interface
+        self.ui.setupInterface = setupWidget(self.ui.setupInterface)
+
+        self.powerTrain = {
+            'motor': '',
+            'propeller': '',
+            'esc':'',
+            'powerSource':''
+        }    
+        
 
     def include_step_test_widget(self):
         # Associate stepTestWidget Class to the stepTestInterface Frame in the main interface
         self.ui.stepTestInterface = stepTestWidget(self.ui.stepTestInterface)
 
         # Define stepTestWidget buttoms functionalities
-        self.ui.stepTestInterface.ui.ReturnBtn.clicked.connect(lambda : self.ui.mainMenu.setCurrentWidget(self.ui.automaticControlMenu))
+        self.ui.stepTestInterface.ui.ReturnBtn.clicked.connect(lambda : self.ui.mainMenu.setCurrentWidget(self.ui.stepTestMenu))
 
 
 

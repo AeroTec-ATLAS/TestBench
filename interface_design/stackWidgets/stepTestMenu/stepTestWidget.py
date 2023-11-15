@@ -20,6 +20,7 @@ class stepTestWidget(QtWidgets.QWidget):
         self.ui.setupUi(Frame)  # Set up the UI elements on this QWidget instance
 
         self.step_sequence_editor_menu_properties()
+        #self.ui.typeOfTestSlider.valueChanged.connect(self.type_of_automatic_test)
         
         # List (of dictionaries) to store the data from ta table to the execution of the step test
         self.stepTestSequence = list()
@@ -32,6 +33,17 @@ class stepTestWidget(QtWidgets.QWidget):
         
         self.update_test_sequence()
         self.update_sequence_preview()
+
+    def type_of_automatic_test(self):
+        if self.ui.typeOfTestSlider.value() == 0:
+            self.test = 'ramp'
+            self.ui.typeOfTestSlider.setValue(1)
+        else:
+            self.test = 'step'
+            self.ui.typeOfTestSlider.setValue(0)
+
+        print(self.test)
+        return
 
     def step_sequence_editor_menu_properties(self):
 
