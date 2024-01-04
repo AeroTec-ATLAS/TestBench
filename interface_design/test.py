@@ -1,38 +1,47 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QComboBox, QLabel
+from PyQt5.QtCore import Qt
 import sys
 
-class MainWindow(QMainWindow):
+class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
-        self.initUI()
 
-    def initUI(self):
-        centralWidget = QWidget(self)
-        layout = QVBoxLayout(centralWidget)
-        
-        self.tableWidget = QTableWidget(self)
-        layout.addWidget(self.tableWidget)
-        
-        self.setCentralWidget(centralWidget)
-        
-        # Add rows and columns to the table
-        self.tableWidget.setRowCount(3)  # Number of rows
-        self.tableWidget.setColumnCount(3)  # Number of columns
+        self.init_ui()
 
-        # Populate the table with data
-        for row in range(self.tableWidget.rowCount()):
-            for col in range(self.tableWidget.columnCount()):
-                item = QTableWidgetItem("Row {} Col {}".format(row, col))
-                self.tableWidget.setItem(row, col, item)
+    def init_ui(self):
+        layout = QVBoxLayout()
 
-        # Disable editing for the first row
-        for col in range(self.tableWidget.columnCount()):
-            item = self.tableWidget.item(0, col)
-            item.setFlags(item.flags() ^ 2)  # Disable the ItemIsEditable flag
-        
-        self.show()
+        # Create a combo box
+        self.combo_box = QComboBox(self)
+        self.combo_box.addItems(['Option 1', 'Option 2', 'Option 3'])
+
+        self.combo_box.highlighted.connect(self.on_combobox_activated)
+
+        # Create a label to display the selected item
+        self.label = QLabel(self)
+
+        layout.addWidget(self.combo_box)
+        layout.addWidget(self.label)
+
+        self.setLayout(layout)
+
+        self.setWindowTitle('Combo Box Example')
+
+    def mousePressEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            # Capture the moment when the left mouse button is pressed
+            print("Mouse click on QComboBox")
+            # You can perform additional actions here if needed
+
+        # Call the base class implementation
+        super().mousePressEvent(event)
+
+    def on_combobox_activated(self, index):
+        selected_item = self.combo_box.itemText(index)
+        self.label.setText(f'Selected item: {selected_item}')
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    mainWindow = MainWindow()
+    window = MainWindow()
+    window.show()
     sys.exit(app.exec_())

@@ -58,7 +58,7 @@ class stepTestWidget(QtWidgets.QWidget):
 
         # Connect the itemChanged signal from the table to to the custom method
         self.ui.SequenceEditorTable.itemChanged.connect(self.update_test_sequence)
-        self.ui.NumLoopsLEdit.textChanged.connect(self.update_test_sequence)
+        self.ui.NumLoopsLEdit.valueChanged.connect(self.update_test_sequence)
 
         
     def add_row_to_table(self):
@@ -203,7 +203,7 @@ class stepTestWidget(QtWidgets.QWidget):
 
         if self.check_sequence(): # if the sequence if valid compute the final 
 
-            num_loops = int(self.ui.NumLoopsLEdit.text())
+            num_loops = int(self.ui.NumLoopsLEdit.value())
 
             if num_loops > 1:
                 sequence_len = len(self.stepTestSequence)
@@ -222,6 +222,7 @@ class stepTestWidget(QtWidgets.QWidget):
         self.stepTestSequence.clear()
 
         for row in range(1, self.ui.SequenceEditorTable.rowCount() - 2):
+            print(self.stepTestSequence)
             time = self.ui.SequenceEditorTable.item(row, 0)
             esc_trotlle = self.ui.SequenceEditorTable.item(row, 1)
 
@@ -248,15 +249,9 @@ class stepTestWidget(QtWidgets.QWidget):
         return True
         
 
-
-        
-
-        
-                
-            
-
-
     def update_sequence_preview(self):
+
+        print(self.stepTestSequence)
         x_data = list()
         y_data = list()
         
